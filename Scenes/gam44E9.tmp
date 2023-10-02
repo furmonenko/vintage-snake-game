@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6xy065qpjnh0"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_4mr37"]
+[ext_resource type="Texture2D" uid="uid://4ox50nqvbprx" path="res://Assets/snake.png" id="2_8exow"]
+[ext_resource type="PackedScene" uid="uid://d1wajiartnc4a" path="res://Scenes/snake.tscn" id="2_aixeg"]
+[ext_resource type="PackedScene" uid="uid://cba568dxuaynb" path="res://Scenes/hud.tscn" id="2_k7we2"]
+[ext_resource type="Resource" uid="uid://dpjvk2qq55vtf" path="res://Resources/score.tres" id="2_lwiix"]
+[ext_resource type="AudioStream" uid="uid://b5a5p23e3uo41" path="res://Assets/Pickup.wav" id="2_v44yx"]
+[ext_resource type="Texture2D" uid="uid://cq5l8t43bvhe1" path="res://Assets/tail.png" id="3_j0b36"]
+[ext_resource type="PackedScene" uid="uid://dssdem6s8mpdj" path="res://Scenes/fruit.tscn" id="4_i2ba2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3f60"]
+texture = ExtResource("2_8exow")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e753"]
+texture = ExtResource("3_j0b36")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_pxlin"]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 15
+sources/2 = SubResource("TileSetAtlasSource_0e753")
+sources/1 = SubResource("TileSetAtlasSource_a3f60")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_4mr37")
+score_res = ExtResource("2_lwiix")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_k7we2")]
+
+[node name="Sound Effects" type="Node" parent="."]
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="Sound Effects"]
+stream = ExtResource("2_v44yx")
+volume_db = -10.0
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -100
+tile_set = SubResource("TileSet_pxlin")
+format = 2
+layer_0/name = "Background"
+layer_0/tile_data = PackedInt32Array(65537, 2, 0, 131073, 2, 0, 196609, 2, 0, 65538, 2, 0, 131074, 2, 0, 196610, 2, 0, 262146, 2, 0, 327682, 2, 0, 393218, 2, 0, 458754, 2, 0, 65539, 2, 0, 131075, 2, 0, 196611, 2, 0, 262147, 2, 0, 327683, 2, 0, 393219, 2, 0, 458755, 2, 0, 65540, 2, 0, 131076, 2, 0, 196612, 2, 0, 262148, 2, 0, 327684, 2, 0, 393220, 2, 0, 458756, 2, 0, 65541, 2, 0, 131077, 2, 0, 196613, 2, 0, 262149, 2, 0, 327685, 2, 0, 393221, 2, 0, 458757, 2, 0, 65542, 2, 0, 131078, 2, 0, 196614, 2, 0, 262150, 2, 0, 327686, 2, 0, 393222, 2, 0, 458758, 2, 0, 65543, 2, 0, 131079, 2, 0, 196615, 2, 0, 262151, 2, 0, 327687, 2, 0, 393223, 2, 0, 458759, 2, 0, 65544, 2, 0, 131080, 2, 0, 196616, 2, 0, 262152, 2, 0, 327688, 2, 0, 393224, 2, 0, 458760, 2, 0, 65545, 2, 0, 131081, 2, 0, 196617, 2, 0, 262153, 2, 0, 327689, 2, 0, 393225, 2, 0, 458761, 2, 0, 65546, 2, 0, 131082, 2, 0, 196618, 2, 0, 262154, 2, 0, 327690, 2, 0, 393226, 2, 0, 458762, 2, 0, 65547, 2, 0, 131083, 2, 0, 196619, 2, 0, 262155, 2, 0, 327691, 2, 0, 393227, 2, 0, 458763, 2, 0, 65548, 2, 0, 131084, 2, 0, 196620, 2, 0, 262156, 2, 0, 327692, 2, 0, 393228, 2, 0, 458764, 2, 0, 65549, 2, 0, 131085, 2, 0, 196621, 2, 0, 262157, 2, 0, 327693, 2, 0, 393229, 2, 0, 458765, 2, 0, 65550, 2, 0, 131086, 2, 0, 196622, 2, 0, 262158, 2, 0, 327694, 2, 0, 393230, 2, 0, 458766, 2, 0, 262145, 2, 0, 327681, 2, 0, 393217, 2, 0, 458753, 2, 0, 458752, 2, 0, 393216, 2, 0, 327680, 2, 0, 262144, 2, 0, 196608, 2, 0, 131072, 2, 0, 65536, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 65551, 2, 0, 131087, 2, 0, 196623, 2, 0, 262159, 2, 0, 327695, 2, 0, 393231, 2, 0, 458767, 2, 0)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(65535, 1, 0, 131071, 1, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 393215, 1, 0, 458751, 1, 0, 524287, 1, 0, 458768, 1, 0, 393232, 1, 0, 327696, 1, 0, 262160, 1, 0, 196624, 1, 0, 131088, 1, 0, 65552, 1, 0, 16, 1, 0, -65520, 1, 0, -65521, 1, 0, -65522, 1, 0, -65523, 1, 0, -65524, 1, 0, -65525, 1, 0, -65526, 1, 0, -65527, 1, 0, -65528, 1, 0, -65529, 1, 0, -65530, 1, 0, -65531, 1, 0, -65532, 1, 0, -65533, 1, 0, -65534, 1, 0, -65535, 1, 0, -65536, 1, 0, -1, 1, 0, 524288, 1, 0, 589823, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0)
+
+[node name="Snake" parent="." instance=ExtResource("2_aixeg")]
+position = Vector2(128, 64)
+
+[node name="Fruit" parent="." instance=ExtResource("4_i2ba2")]
+position = Vector2(-8, 8)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(128, 64)

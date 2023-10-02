@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cba568dxuaynb"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_60fc7"]
+[ext_resource type="FontFile" uid="uid://yiqqkyx10kip" path="res://Assets/Kenney Mini Square Mono.ttf" id="1_bkww8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t70ju"]
+
+[sub_resource type="Theme" id="Theme_77pyj"]
+Button/styles/pressed = SubResource("StyleBoxFlat_t70ju")
+
+[sub_resource type="LabelSettings" id="LabelSettings_sk3km"]
+font = ExtResource("1_bkww8")
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_kb4vn"]
+font = ExtResource("1_bkww8")
+font_size = 5
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_77pyj")
+script = ExtResource("1_60fc7")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 112.0
+offset_right = 42.0
+offset_bottom = 122.0
+text = "Score: 999
+"
+label_settings = SubResource("LabelSettings_sk3km")
+vertical_alignment = 1
+
+[node name="High Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 119.0
+offset_right = 61.0
+offset_bottom = 129.0
+text = "High Score: 999"
+label_settings = SubResource("LabelSettings_kb4vn")
+vertical_alignment = 1

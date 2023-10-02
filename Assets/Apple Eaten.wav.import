@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4wppb42oo0eu"
+path="res://.godot/imported/Apple Eaten.wav-363d9d9293b5f7b5bbadaf48e30e39a2.sample"
+
+[deps]
+
+source_file="res://Assets/Apple Eaten.wav"
+dest_files=["res://.godot/imported/Apple Eaten.wav-363d9d9293b5f7b5bbadaf48e30e39a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
